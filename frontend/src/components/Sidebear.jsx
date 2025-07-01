@@ -1,5 +1,6 @@
 
 import React, { useEffect, useState } from 'react'
+import { setSocket } from '../Redux/socketSlice';
 import { BiSearchAlt2 } from "react-icons/bi";
 import OtherUsers from './OtherUsers';
 import axios from 'axios';
