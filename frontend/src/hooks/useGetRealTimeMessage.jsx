@@ -10,7 +10,17 @@ const useGetRealTimeMessage = () => {
     if (!socket) return;
 
     const handleNewMessage = (newMessage) => {
-      dispatch(addMessage(newMessage));
+      //dispatch(addMessage(newMessage));
+      // add new code here
+      const senderId = newMessage.SenderId;
+
+      
+      if (selectedUser && selectedUser._id === senderId) {
+        dispatch(addMessage(newMessage));
+      } else {
+        // Optional: Set unread message indicator for others
+        dispatch(setUnreadMessage({ fromUserId: senderId }));
+      }
     };
 
     socket.on("newMessage", handleNewMessage);
