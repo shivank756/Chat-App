@@ -13,13 +13,14 @@ const PORT = process.env.PORT || 8000;
 app.use(express.urlencoded({extended:true}))
 app.use(cookieParser());
 app.use(express.json())
-const corsoption={
-    origin:'http://localhost:5173',
+const corsoption = {
+  origin: [
+    'http://localhost:5173',
     'https://chat-app-j31o.onrender.com'
-    ],
-    
-    credentials:true,
-}
+  ],
+  credentials: true
+};
+
 app.use(cors(corsoption))
 
 app.use("/api/v1/user",user_routes);
