@@ -1,10 +1,12 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addMessage } from "../Redux/messageSlice";
+import { setUnreadMessage } from "../Redux/userSlice";
 
 const useGetRealTimeMessage = () => {
   const { socket } = useSelector((store) => store.socket);
   const { selectedUser } = useSelector((store) => store.user);
+  
   const dispatch = useDispatch();
 
   useEffect(() => {
