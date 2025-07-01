@@ -4,6 +4,7 @@ import { setSelectedUser} from '../Redux/userSlice';
 
 export default function OtherUser(props) {
   const user = props.user;
+  if (!user) return null;
   const dispatch = useDispatch();
   const {selectedUser,onlineUsers} = useSelector(store=>store.user);
   //const isOnline = onlineUsers.includes(user._id);
