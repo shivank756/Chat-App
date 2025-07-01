@@ -6,7 +6,8 @@ export default function OtherUser(props) {
   const user = props.user;
   const dispatch = useDispatch();
   const {selectedUser,onlineUsers} = useSelector(store=>store.user);
-  const isOnline = onlineUsers.includes(user._id);
+  //const isOnline = onlineUsers.includes(user._id);
+  const isOnline = Array.isArray(onlineUsers) && onlineUsers.includes(user._id);
 
 
   const selectedUserHandler = (user) =>{
