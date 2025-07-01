@@ -4,6 +4,7 @@ import { addMessage } from "../Redux/messageSlice";
 
 const useGetRealTimeMessage = () => {
   const { socket } = useSelector((store) => store.socket);
+  const { selectedUser } = useSelector((store) => store.user);
   const dispatch = useDispatch();
 
   useEffect(() => {
