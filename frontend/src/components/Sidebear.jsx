@@ -7,6 +7,7 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { resetUserState, setAuthUser } from '../Redux/userSlice';
+import { clearMessages  } from '../Redux/messageSlice';
 import { useSelector, useDispatch } from 'react-redux';
 
 export default function Sidebear() {
@@ -40,6 +41,7 @@ export default function Sidebear() {
             axios.defaults.withCredentials = true;
             const res = await axios.get('https://chat-app-backend-rsmz.onrender.com/api/v1/user/logout');
             localStorage.removeItem("authUser");
+            dispatch(clearMessages());
             dispatch(resetUserState());
             dispatch(setAuthUser(null));
             navigate("/login");
