@@ -42,6 +42,7 @@ export default function Sidebear() {
             dispatch(resetUserState());
             dispatch(setAuthUser(null));
             navigate("/login");
+            dispatch(setSocket(null));
             toast.success(res.data.message);
         } catch (error) {
             console.log(error);
