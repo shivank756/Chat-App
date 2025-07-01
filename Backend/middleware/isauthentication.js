@@ -20,7 +20,7 @@ const isAuthenticated = (req, res, next) => {
         }
 
         
-        req.user = { _id: decoded.userid };
+       req.id = decoded.userid;
         next(); 
     } catch (error) {
         console.error("Authentication Error:", error.message);
