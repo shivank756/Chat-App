@@ -63,6 +63,7 @@ export default function OtherUser(props) {
   const selectedUserHandler = async (user) => {
     try {
       dispatch(setSelectedUser(user)); // for immediate visual update
+        dispatch(setMessages([]));
       axios.defaults.withCredentials = true;
 
       const res = await axios.get(
