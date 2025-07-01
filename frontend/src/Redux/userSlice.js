@@ -9,6 +9,7 @@ const userSlice = createSlice({
         otherUsers :null,
         selectedUser:null,
         onlineUsers:[],
+        unreadMessages: {},
     },
     reducers:{
         setAuthUser:(state,action)=>{
@@ -29,7 +30,19 @@ const userSlice = createSlice({
         },
         setOnlineUsers:(state,action)=>{
             state.onlineUsers = action.payload;
-        }
+        },
+        setUnreadMessage: (state, action) => {
+              const fromUserId = action.payload.fromUserId;
+              if (!state.unreadMessages[fromUserId]) {
+                state.unreadMessages[fromUserId] = 1;
+              } else {
+                state.unreadMessages[fromUserId] += 1;
+              }
+        },
+        clearUnreadMessage: (state, action) => {
+          const fromUserId = action.payload.fromUserId;
+          delete state.unreadMessages[fromUserId];
+        },
 
         
     }
@@ -37,5 +50,5 @@ const userSlice = createSlice({
     
 }
 )
-export const {setAuthUser,setOtherUser,setSelectedUser,resetUserState,setOnlineUsers} = userSlice.actions;
+export const {setAuthUser,setOtherUser,setSelectedUser,resetUserState,setOnlineUsers,setUnreadMessage,clearUnreadMessage} = userSlice.actions;
 export default userSlice.reducer;
