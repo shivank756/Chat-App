@@ -32,7 +32,7 @@ const useGetRealTimeMessage = () => {
     return () => {
       socket.off("newMessage", handleNewMessage);
     };
-  }, [socket, dispatch]);
+  }, [socket, dispatch,selectedUser]);
 };
 
 export default useGetRealTimeMessage;
