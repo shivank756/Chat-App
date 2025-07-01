@@ -47,7 +47,7 @@ function App() {
   let newsocket;
 
   if (authUser) {
-   newsocket = io('http://localhost:3000', {
+   newsocket = io('https://chat-app-backend-rsmz.onrender.com', {
     // newsocket = io('http://192.168.1.9:3000', {
       query: {
         userId: authUser._id
