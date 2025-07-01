@@ -22,8 +22,10 @@ const userSlice = createSlice({
         },
         resetUserState:(state,action)=>{
             
+            state.authUser = null;
             state.otherUsers = null;
             state.selectedUser = null;
+            state.onlineUsers = [];
         },
         setOnlineUsers:(state,action)=>{
             state.onlineUsers = action.payload;
