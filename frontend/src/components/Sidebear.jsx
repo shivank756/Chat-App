@@ -41,6 +41,7 @@ export default function Sidebear() {
             axios.defaults.withCredentials = true;
             const res = await axios.get('https://chat-app-backend-rsmz.onrender.com/api/v1/user/logout');
             localStorage.removeItem("authUser");
+            localStorage.removeItem("selectedUser");
             dispatch(clearMessages());
             dispatch(resetUserState());
             dispatch(setAuthUser(null));
