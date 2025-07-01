@@ -11,6 +11,7 @@ const io = new Server(server, {
                'https://chat-app-j31o.onrender.com'
               ],
         methods: ["GET", "POST"],
+      credentials: true
     }
 });
 
